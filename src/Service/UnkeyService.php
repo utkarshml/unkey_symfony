@@ -82,7 +82,7 @@ class UnkeyService
                 if ($statusCode >= 200 && $statusCode < 300) {
                     return ['result' => $response->toArray()];
                 }
-
+                $err = $response->getContent();
                 $backoff = call_user_func($this->retry['backoff'], $i);
                 usleep($backoff * 1000); // wait before retrying
             } catch (\Throwable $e) {
