@@ -37,6 +37,25 @@ class UnkeyController extends AbstractController
         }
     }
  
+    #[Route('/key', name: 'information_of_key' ,methods:["GET"])]
+    public function getKey(Request $request): JsonResponse
+    {
+        $content = $request->getContent();
+        $data = json_decode($content, true);
+        $keyId = $data['keyId'] ?? null;
+        if (!$keyId) {
+            return new JsonResponse(['error' => 'No authorization header found'], 400);
+        }
+        $data = [
+            'keyId' => $keyId
+        ];
+        try {
+            $response = $this->unkeyService->getKey($data, );
+            return new JsonResponse($response, 200);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => $e->getMessage()], 500);
+        }
+    }
 
 // This is protected routes by Unkey 
 
