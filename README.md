@@ -31,9 +31,14 @@ composer install
 
 In your `.env` file, set the necessary Unkey API credentials:
 
+
+
 ```env
 UNKEY_API_KEY=your_unkey_api_key
 UNKEY_BASE_URL=https://api.unkey.com
 ```
 Replace your_unkey_api_key with your actual Unkey API key.
 
+## **Demo Video**
+
+# [Demo Video of Unkey](https://www.youtube.com/watch?v=o91e3JlRwss&feature=youtu.be)
